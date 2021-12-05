@@ -1,5 +1,3 @@
 export default function Nominee() {
-  <div>
-    nominee
-  </div>
+  ;<div>nominee</div>
 }
