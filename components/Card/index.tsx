@@ -8,7 +8,7 @@ export type CardData = {
 
 type Props = {
   card: CardData
-  key: string
+  key?: string
   updateItems: (categoryId: string, card: CardData) => void
   categoryId: string
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 import Category, { CategoryData } from '../components/Category'
 import { CardData } from '../components/Card'
 import SubmitModal from '../components/SubmitModal'
@@ -18,9 +19,8 @@ const Home: NextPage = () => {
   // get data from API and store to state
   useEffect(() => {
     const getCategoriesData = async () => {
-      const response = await fetch('api/ballots', { method: 'GET' })
-      const data = await response.json()
-      if (data.items) setCategories(data.items)
+      const response = await axios.get('api/ballots')
+      if (response) setCategories(response.data.items)
     }
     getCategoriesData()
   }, [])
